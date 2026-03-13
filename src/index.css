@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* === CORES BASE === */
+    --background:         222 47% 6%;
+    --foreground:         0 0% 98%;
+
+    /* === CARD / SUPERFÍCIE === */
+    --card:               222 47% 8%;
+    --card-foreground:    0 0% 98%;
+    --popover:            222 47% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* === PRIMÁRIA (rosa/pink) === */
+    --primary:            330 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --pink:               330 90% 55%;
+    --pink-hover:         330 90% 48%;
+
+    /* === SECUNDÁRIA === */
+    --secondary:          222 47% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* === MUTED === */
+    --muted:              222 47% 15%;
+    --muted-foreground:   220 10% 60%;
+
+    /* === ACCENT (dourado) === */
+    --accent:             45 100% 60%;
+    --accent-foreground:  222 47% 6%;
+    --gold:               45 100% 60%;
+    --gold-dark:          45 80% 45%;
+
+    /* === NAVY (aliases) === */
+    --navy:               222 47% 6%;
+    --navy-light:         222 47% 12%;
+
+    /* === FEEDBACK === */
+    --success:            142 76% 45%;
+    --destructive:        0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* === BORDAS E INPUTS === */
+    --border:             222 30% 18%;
+    --input:              222 30% 18%;
+    --ring:               330 90% 55%;
+
+    /* === RAIO DE BORDA === */
+    --radius:             0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* === GRADIENTES === */
+  .gradient-pink {
+    background: linear-gradient(135deg, hsl(330 90% 55%), #cf1773);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(45 100% 60%), hsl(45 80% 45%));
+  }
+
+  /* === EFEITOS DE BRILHO (GLOW) === */
+  .glow-pink {
+    box-shadow: 0 0 30px hsl(330 90% 55% / 0.4);
+  }
+
+  .glow-pink-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes shine {
+  0%        { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(330 90% 55% / 0.3); }
+  50%      { box-shadow: 0 0 40px hsl(330 90% 55% / 0.6); }
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+@keyframes scroll-reverse {
+  0%   { transform: translateX(-33.33%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
